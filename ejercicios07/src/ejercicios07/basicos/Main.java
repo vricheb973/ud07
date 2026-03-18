@@ -2,10 +2,10 @@ package ejercicios07.basicos;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import ejercicios07.dataset.Dataset;
 import ejercicios07.dataset.Empleado;
+import ejercicios07.dataset.Pedido;
 import ejercicios07.dataset.Producto;
 
 public class Main {
@@ -65,6 +65,13 @@ public class Main {
 		return Dataset.getProductos().stream()
 				.sorted((p1, p2) -> Double.compare(p2.getPrecio(), p1.getPrecio()) )
 				.limit(3)
+				.toList();
+	}
+	
+	//Omitir los 2 primeros pedidos de la lista y obtener los demás.
+	public static List<Pedido> ejercicio6(){
+		return Dataset.getPedidos().stream()
+				.skip(2)
 				.toList();
 	}
 	
